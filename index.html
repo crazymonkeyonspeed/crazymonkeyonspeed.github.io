@@ -1,0 +1,281 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit-icons.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<script src="algs.js"></script>
+	<script src="algtimes.js"></script>
+	<style>
+	td {
+		font-size: 13pt;
+		padding: 0 !important;
+		vertical-align: initial !important;
+	}
+	.algcell {
+		width: 33%;
+		height: 130px;
+		float: left;
+		border: 1px solid black;
+		background-color: white;
+	}
+	</style>
+</head>
+
+<body onload="init();">
+	<div class="uk-section" style="padding:10px;">
+		<div class="uk-container">
+			<h2><center>Non-SADT FH 2x2x2 Algorithms</center></h2>
+		</div>
+		<ul uk-tab class="uk-flex-center">
+			<li class="uk-active" onclick="s(42);"><a nohref="nohref">Optimized:</a></li>
+			<li onclick="s(14);"><a nohref="nohref">U-FH</a></li>
+			<li onclick="s(15);"><a nohref="nohref">FH-U</a></li>
+			<li onclick="s(16);"><a nohref="nohref">T-FH</a></li>
+			<li onclick="s(17);"><a nohref="nohref">FH-T</a></li>
+			<li onclick="s(18);"><a nohref="nohref">++FH</a></li>
+			<li onclick="s(22);"><a nohref="nohref">FH1+</a></li>
+		</ul>
+		<ul uk-tab class="uk-flex-center">
+			<li class="uk-active" onclick="s(42);"><a nohref="nohref">Unoptimized:</a></li>
+			<li onclick="s(19);"><a nohref="nohref">FH++</a></li>
+			<li onclick="s(20);"><a nohref="nohref">--FH</a></li>
+			<li onclick="s(21);"><a nohref="nohref">FH--</a></li>
+			<li onclick="s(23);"><a nohref="nohref">FH1-</a></li>
+			<li onclick="s(24);"><a nohref="nohref">FH2+</a></li>
+			<li onclick="s(25);"><a nohref="nohref">FH2-</a></li>
+			<!--<li onclick="s(26);"><a nohref="nohref">&lt;R2,U,F2&gt;</a></li>-->
+		</ul>
+		<div class="uk-container" id="putContentHere">
+		</div>
+	</div>
+	<script>
+	function s(p) {
+		var text = "";
+		if(p < 42){
+		text += `<div>
+			${data[p].length} algs, avg length ${getAvgLength(p)} &nbsp;&nbsp;&nbsp;Algorithm speed:
+			<span style='color:green'>Very fast</span>
+			<span style='color:#698869'>Fast</span>
+			<span style='color:#cccccc'>Medium</span>
+			<span style='color:yellow'>Slow</span>
+			<span style='color:orange'>Very slow</span>
+			<span style='color:red'>Very very slow</span>
+			<br/>
+            <!--<table class='uk-table'>-->
+            ${genRows(p)}
+            <!--</table>-->
+        </div>`;
+		} else {
+			text += "<div>" + genOverview() + "</div>";
+		}
+		document.getElementById("putContentHere").innerHTML = text;
+	}
+
+	function algtime2color(algtime){
+		if(algtime < 0.5) return "green";
+		if(algtime < 0.55) return "#698869";
+		if(algtime > 0.8) return "red";
+		if(algtime > 0.75) return "orange";
+		if(algtime > 0.7) return "yellow";
+		if(algtime > 0.65) return "#aaaaaa";
+		if(algtime > 0.60) return "#bbbbbb";
+		return "#cccccc";
+	}
+
+	function genImage(alg) {
+		return '<img src="http://cube.rider.biz/visualcube.php?fmt=svg&size=120&view=plan&pzl=2&case=' + alg + ' U2"/>';
+	}
+	
+	function genRows(k) {
+		var t = "";
+		function prettifyAlg(alg) {
+			return (alg + " ").split("R2 ").join("R' R' ")
+				.split("R U R' U' ").join("[sexy] ")
+				.split("U R U' R' ").join("[unSexy] ")
+				.split("R' F R F' ").join("[sledge] ")
+				.split("F R' F' R ").join("[hedge] ")
+				.split("R U R' ").join("[Push] ")
+				.split("R U' R' ").join("[Pull] ")
+				.split("R' U' R ").join("[Back pull] ")
+				.split("R' U R ").join("[Back push] ")
+				.split("R U R' U ").join("[Su-] ")
+				.split("R' F R ").join("[Left pull] ")
+				.split("R' F' R ").join("[Left push] ")
+				.split("R U2 R' ").join("[-ne] ")
+				.split("R' U2 R ").join("[Back ne] ")
+				.split("R' R' ").join("R R ")
+
+				.split("R U R' U' ").join("[sexy] ")
+				.split("U R U' R' ").join("[unSexy] ")
+				.split("R' F R F' ").join("[sledge] ")
+				.split("F R' F' R ").join("[hedge] ")
+				.split("R U R' ").join("[Push] ")
+				.split("R U' R' ").join("[Pull] ")
+				.split("R' U' R ").join("[Back pull] ")
+				.split("R' U R ").join("[Back push] ")
+				.split("R U R' U ").join("[Su-] ")
+				.split("R' F R ").join("[Left pull] ")
+				.split("R' F' R ").join("[Left push] ")
+				.split("R U2 R' ").join("[-ne] ")
+				.split("R' U2 R ").join("[Back ne] ")
+				.split("R R ").join("R2 ");
+		}
+		for (var i = 0; i < data[k].length; ++i) {
+			//t += "<tr><td>" + genImage(data[k][i][0]) + "</td><td>" + data[k][i][0] + (data[k][i][2] ? "<br/>"+data[k][i][2]:"") + "</td><td>" + data[k][i][1] + "</td><td>" + prettifyAlg(data[k][i][0]) + (data[k][i][2] ? "<br/>"+prettifyAlg(data[k][i][2]):"") + "</td></tr>";
+			t += "<div class='algcell'><div style='float:left;width:120px;'>" + genImage(data[k][i][0]);
+			if(algtimes[k][i])
+				t += "<hr style='margin:0;border-top:solid "+algtime2color(algtimes[k][i])+"'/>";
+			t += "</div><div style='float:right;width:calc(100% - 120px);text-align:center;'><b>"+data[k][i][1]+"<br/>" + data[k][i][0]+"</b><br/>";
+			if(prettifyAlg(data[k][i][0]) != data[k][i][0]+" ") t += prettifyAlg(data[k][i][0]);
+			if(data[k][i][2]){
+				t += "<hr style='margin:0;'/>";
+				t += data[k][i][2];
+				if(prettifyAlg(data[k][i][2]) != data[k][i][2]+" " && !data[k][i][3]) t += "<br/>"+prettifyAlg(data[k][i][2]);
+			}
+			if(data[k][i][3]){
+				t += "<hr style='margin:0;'/>";
+				t += data[k][i][3];
+			}
+			t += "</div></div>";
+		}
+		return t;
+	}
+
+	function genOrientationOverview(){
+		var q = "";
+		var oris = [
+			"0330120",
+			"3031213",
+			"0300321",
+			"0021020",
+			"0003320",
+			"0101002"
+		];
+		for(var i=0;i<43;++i){
+			for(var k=0;k<7;++k){
+				var j = [0,1,4,14,15,16,17][k];
+
+				var s = data[j][i];
+				q += "<div class='algcell' style='width:14%;text-align:center;"+(oris[i]?"background-color:"+["green","yellow","grey","orange"][oris[i][k]]:"")+"'>";
+				q += "<b>" + hl[j] + " " + s[1] + "</b>";
+				q += genImage(s[0]);
+				q += "</div>";
+			}
+			q += "<br/>";
+		}
+		document.getElementById("putContentHere").innerHTML = "<div>"+q+"</div>";
+		return q;
+	}
+
+	function genOrientationOverview2(){
+		var q = "";
+		for(var i=0;i<43;++i){
+			for(var k=0;k<10;++k){
+				var j = [2,3,18,19,20,21,22,23,24,25][k];
+
+				var s = data[j][i];
+				if(s){
+					q += "<div class='algcell' style='width:14%;text-align:center;'>";
+					q += "<b>" + hl[j] + " " + s[1] + "</b>";
+					q += genImage(s[0]);
+					q += "</div>";
+				}
+			}
+			q += "<br/>";
+		}
+		document.getElementById("putContentHere").innerHTML = "<div>"+q+"</div>";
+		return q;
+	}
+
+	function genSetOverview(){
+		var q = "";
+		for(var k=0;k<8;++k){
+			for(var i=0;i<7;++i){
+				var j = [0,1,4,14,15,16,17][i];
+				var t = [0,6,12,18,24,30,36,40][k];
+				var setlgth = [6,6,6,6,6,6,4,3][k];
+
+				var sum = 0;
+				for(var s=0;s<setlgth;++s){
+					sum += algtimes[j][t+s];
+				}
+				q += "<div class='algcell' style='width:14%;text-align:center;background-color:"+algtime2color(sum/setlgth)+";'>";
+				q += "<b>" + hl[j] + " " + ["Sune","Antisune","Pi","U","L","T","H","Skip"][k] + "</b>";
+				q += "<hr style='margin:0;border-top:solid "+algtime2color(sum/setlgth)+"'/>";
+				q += "<br/>" + Math.round(sum/setlgth*100)/100 + " ";
+				q += "</div>";
+			}
+			q += "<br/>";
+		}
+		document.getElementById("putContentHere").innerHTML = "<div>"+q+"</div>";
+		return q;
+	}
+
+	function genSetOverview2(){
+		var q = "";
+		for(var k=0;k<8;++k){
+			for(var i=0;i<10;++i){
+				var j = [2,3,18,19,20,21,22,23,24,25][i];
+				var t = [0,6,12,18,21,25,31,37][k];
+				var setlgth = [6,6,6,3,4,6,6,6][k];
+
+				var sum = 0;
+				for(var s=0;s<setlgth;++s){
+					sum += algtimes[j][t+s];
+				}
+				q += "<div class='algcell' style='width:9.8%;text-align:center;background-color:"+algtime2color(sum/setlgth)+";'>";
+				q += "<b>" + hl[j] + " " + ["Hammer","Spaceship","Gamma","4-face","2-face","Turtle","Beta","Gun"][k] + "</b>";
+				q += "<hr style='margin:0;border-top:solid "+algtime2color(sum/setlgth)+"'/>";
+				q += "<br/>" + Math.round(sum/setlgth*100)/100 + " ";
+				q += "</div>";
+			}
+			q += "<br/>";
+		}
+		document.getElementById("putContentHere").innerHTML = "<div>"+q+"</div>";
+		return q;
+	}
+
+	function getAvgLength(l) {
+		var sum = 0;
+		for (var i = 0; i < data[l].length; ++i) {
+			sum += data[l][i][0].split(" ").length - data[l][i][0].split("(").length + 1;
+		}
+		return Math.round(100 * sum / data[l].length) / 100;
+	}
+
+	var hl = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "U-FH", "FH-U", "T-FH", "FH-T", "++FH", "FH++", "--FH", "FH--","FH1+","FH1-","FH2+","FH2-","&lt;R2,U,F2&gt;"];
+	var l = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 40];
+
+	function getExtraCount(l){
+		var sum = 0;
+		for (var i = 0; i < data[l].length; ++i) {
+			if(data[l][i][2]) ++sum;
+			if(data[l][i][3]) ++sum;
+		}
+		return sum;
+	}
+
+	function genOverview() {
+		var ax = "", missing = 0, total = 0, extra = 0;
+		for (var i = 14; i < hl.length; ++i) {
+			if(i==5||i==14||i==26) ax += "<br/>";
+			ax += hl[i] + ": " + data[i].length + " (+"+getExtraCount(i)+") algorithms of length "+getAvgLength(i)+(data[i].length==l[i]?"":" ("+Math.round(100*data[i].length/l[i])+"%)")+"<br/>";
+			missing += l[i] - data[i].length;
+			total += l[i];
+			extra += getExtraCount(i);
+		}
+		ax+= "-"+missing+"/"+total+" (+"+extra+")<br/>";
+		ax+= "<br/>Format: Algorithms (+Extras), average length (Percentage of algs filled in). Extra algorithms are as fast or very slightly slower as the associated main ones, but have different orientation or AUF(s) (or rarely just a different starting move for cancelling). There may always be other algs that are good, this list is generally not complete.";
+		ax+="<br/><br/><span onclick='genSetOverview();'>FH CLL Speed Overview</span><br/><span onclick='genSetOverview2();'>FH TCLL Speed Overview</span>";
+		ax+="<br/><br/><span onclick='genOrientationOverview();'>FH CLL Orientation Overview</span><br/><span onclick='genOrientationOverview2();'>FH TCLL Orientation Overview</span>";
+		return ax;
+	}
+
+	function init() {
+		s(42);
+	}
+	</script>
+</body>
+</html>
