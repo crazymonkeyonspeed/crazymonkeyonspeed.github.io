@@ -258,7 +258,7 @@
 	}
 
 	function genOverview() {
-		var ax = "", missing = 0, total = 0, extra = 0;
+		var ax = "Naming: Characters before FH indicate no swap on bottom face, after FH indicate a swap. T and U are the corresponding OLL cases, ++ and -- are both corners twisted in the same direction, 1+ 1- 2+ and 2- are one corner twisted in the front/back.<br/>", missing = 0, total = 0, extra = 0;
 		for (var i = 14; i < hl.length; ++i) {
 			if(i==5||i==14||i==26) ax += "<br/>";
 			ax += hl[i] + ": " + data[i].length + " (+"+getExtraCount(i)+") algorithms of length "+getAvgLength(i)+(data[i].length==l[i]?"":" ("+Math.round(100*data[i].length/l[i])+"%)")+"<br/>";
