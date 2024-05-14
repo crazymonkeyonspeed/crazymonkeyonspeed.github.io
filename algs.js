@@ -272,7 +272,7 @@ data = [
 
 		["(y) F' U R' F' R2 U R' F' (y')", "T right", "R2 F2 U' R' U R2 F' R'"],
 		["(y) F U' R U R2 F' R F (y')", "T left", "R U' F R F2 U' F R"],//bad, R2 F2 U F R' U2 F R
-		["(y) R' F R U' F2 R U' R (y')", "T doof", "R' U2 R U' F R F' R U' R2"],
+		["(y) R' F R U' F2 R U' R' (y')", "T doof", "R' U2 R U' F R F' R U' R2"],
 		["R' U2 R2 U' R2", "T RU", "R U2 R2 U R2"],
 		["R U2 R' F R F' U R U2 R", "T Opp"],//R U' R2 F2 U R2 U' F2
 		["F' R U' R U' R2 F' R2 F'", "T PLL", "R U' R2 F R2 F' U R' U2 R"],
