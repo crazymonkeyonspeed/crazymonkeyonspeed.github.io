@@ -135,7 +135,7 @@ data = [
 		["R' U' R F' U' F R2", "Sune Diag"],
 		["R2 U' R2 U' R U' R' F R' F'", "Sune Niklas Diag"],//R' F U2 R' U' F U R' F;R' F U2 F R U R' F' R2 F;R2 F R' F' U2 R2 F R' F'; OppF: U' R2 F R' U' R2 U' R; OppR: U' F2 R U' R' U2 R' F
 		["R F R' F' R U2' R' U R", "Sune Niklas"],//R2 U R' U2 R F' U' F; F' U2 F R2 U R U2 R; R2 U R' U2 R F' U' F
-		["R U' R2 F R' F' R U' R2", "Sune Opposite", "R2 U R2 F' U' F U2 R"],
+		["R2 U R2 F' U' F U2 R", "Sune Opposite"],
 		["R' U' F' U' F R' U R'", "Sune Opp/Opp", "R U' R2' F R' F' R U' R2", "F R F' U2 R' U2 R' U R'"],
 
 		["R' U2 R U' R U R2 U' R U R'", "Anti easy"],//R' F R' F2 U2 F U' R2
@@ -266,7 +266,7 @@ data = [
 		["F R' F' U2 R U' R2", "L left"],
 		["F' U F U2 R' U R2", "L right", "R2 F2 R U R U2 F' R'"],//R U2 F R F' R2 U R2'
 		["R' F' U' F U' R2 U' R2", "L Diag", "F2 R2 U R' U R' U' F R2"],//R F R F' U R2 U R2; R2 U' R2 F2 R U R' U' F R2
-		["(x') R2 U R' U2 R' U' R U (x)", "L RU", "R U' R' U R' U2 R U' R' U R'"],//R U' R2 U' R U2 R U2 R2 U2 R; (U) R' U R2 U R' U2 R U2 R
+		["R U' R' U R' U2 R U' R' U R'", "L RU"],//R U' R2 U' R U2 R U2 R2 U2 R; (U) R' U R2 U R' U2 R U2 R
 		["R' F R F' R U' R2 U R2", "L Top Equal ADJ"],
 		["R' U2 R U' R' F R F' R'", "L Top Equal Opp", "R U' R U R' F R F' R"],
 
@@ -278,9 +278,9 @@ data = [
 		["F' R U' R U' R2 F' R2 F'", "T PLL", "R U' R2 F R2 F' U R' U2 R"],
 
 		["R U' R' U R' U R' U2 R'", "H easy"],
-		["R' F' U' F R U' R U' R2", "H Diag"],
-		["R U2 F R2 F' R2 U R2", "H kurz"],
-		["R U2' R U F R F' R", "H lang"],//R' U2 R' U' F' U' F R', other r also good
+		["R' F' U' F R U' R U' R2", "H Diag", "R U2 F R2 F' R2 U R2"],
+		["R U2' R U F R F' R", "H kurz"],//R' U2 R' U' F' U' F R', other r also good
+		["F' U R' U R' U2' R2 F' R", "H lang"],
 
 		["R' F R' F' U2 R U' R U R'", "Adjacent swap"],
 		["(y) R' F R F R' F R2 U' R' (y')", "Diagonal Swap", "R2 F2 R F' R' F U F"],
@@ -305,13 +305,13 @@ data = [
 		["R2 U R' U R U2' R2' U R", "Pi Diag"],
 		["R' U2 R2 F R F' R U' R' U R'", "Pi Bars"],//F' U' F U' R U' F R2 F'; F R2 F' R U2 R U' R2 U' R2
 		["R2 U' R' U R U' F R' F' R", "Pi Schach"],//F2 R U' R' F U R' F2 R2
-		["F R F' U2' R' F' U2' F", "Pi DL"],
-		["(y') R' U' R U R' U2 R B (y)", "Pi DR"],
+		["(y) R U R' U' R U2 R' F' (y')", "Pi DL"],//F R F' U2' R' F' U2' F
+		["(y') R' U' R U R' U2 R B (y)", "Pi DR", "(y) F R U2 R' U R U' R' (y')"],
 
 		["F2 R U R' F U R", "U easy", "R' U R U' R U R' U R U2 R2"],//F' U' R2 F' R2' U' F
 		["F' U R' F2 R U2 F U R", "U RU"],
 		["F2 R F2 R' F2", "U Bars"],
-		["R' F R' F' R U2 F' U F", "U Opp"],
+		["(y) F R U' R' U R U' R' U R U' R' (y')", "U Opp", "R' F R' F' R U2 F' U F"],
 		["R' U' R U R2 F R F'", "U B"],
 		["R U R' F R' F' R2", "U F"],
 
