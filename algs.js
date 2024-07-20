@@ -712,13 +712,13 @@ data = [
 		["R' F' U' F R' U R2","Spaceship (Long) RU"],
 		["R U' R U' R2 U' R2 U R'","Spaceship Long"],
 		["R U R2 F R F' R","Spaceship Diag Opp","(x') R U' R U R2' F' R (x)"],
-		["R2 F2 U R' U' F2 R2 U2 R","Spaceship Diag Adj"],
-		["R2 U2 R' F U2 R2 F U R","Spaceship Mixed Opp"],//Recog Sune
+		["R U' R U2 R' U2 R' F R2 F'","Spaceship Diag Adj"],
+		["F' R U R' U' F' U' F2 R","Spaceship Mixed Opp", "R2 U' R' U R' U' F R2 F' R2"],//Recog Sune
 		["R2 U R2 U' R' F R F'","Spaceship Mixed Adj"],
 
-		["R F' U2 F R U2 R U R'","&Gamma; Skip"],
-		["R' F' R F' U' F2 R","&Gamma; Diag"],
-		["F' R2 U2 R F' R' U2 R'","&Gamma; Left"],
+		["R' F R2 F' R U R2 U R","&Gamma; Skip"],
+		["R' F' R F' U' F2 R","&Gamma; Diag", "R F2 U' R' U F' R'"],
+		["R U' R' U R U2 F R F'","&Gamma; Left"],
 		["R2 F R' U2 R2 U' F R2","&Gamma; Right"],
 		["R F R' F'","&Gamma; Front","(y) F R U' R' (y')","F' U' F R"],
 		["R' U2 R' F' U' F U2 R2","&Gamma; Back"],
@@ -731,7 +731,7 @@ data = [
 		["R' U' R' U R2", "2-Face Diag", "R U' R' U' R"],
 		["F R2 F2 R' F2 R F R2","2-Face Left"],
 		["F2 U F2 U2 F' R' F R2","2-Face Right"],
-
+		
 		["R2 U R' F R' F' R'","Galapagos Turtle"],
 		["R' F' U F R' U R' U R'","Box Turtle","R' U R' U2 R2 U' R2 F' U2 F"],
 		["(y') R U2 R' U2 R' U' F (x') (y)","Wood Turtle","R F2' R' F' U R' F'"],//F U2 F' U2 F' U' R
