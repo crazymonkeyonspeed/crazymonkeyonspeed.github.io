@@ -16,7 +16,7 @@ data = [
 		["", "Pi easy"],
 		["", "Pi Diag"],
 		["", "Pi Bars"],
-		["", "Pi Schach"],
+		["", "Pi Checkers"],
 		["", "Pi DL"],
 		["", "Pi DR"],
 
@@ -148,7 +148,7 @@ data = [
 		["R2 U R' U R' U R", "Pi easy"],//R2 U2 R' U R2 U2 R'
 		["F' U R' U2 F R F R", "Pi Diag","F2 R U' R2 U2 R' F R2"],
 		["R' F R' F' U' R' U2 R'", "Pi Bars"],
-		["R U2 R2' F' R' U' R U' F", "Pi Schach"],
+		["R U2 R2' F' R' U' R U' F", "Pi Checkers"],
 		["F' U' F R2 U R' U2' R", "Pi DL"],
 		["R U' R' U' R2 U' F R F'", "Pi DR", "F R F' R2 U' R U2 R'"],//R2 F' U' F R U' R2 U' R'
 
@@ -200,7 +200,7 @@ data = [
 		["R' U' F R' F' R' U' R2 U' R'", "Pi easy", "F2 R U R' F R F' U' F R2"],//R2 F2 R F R' F U F R'
 		["(y') F2 U' R' F2 R2 U R' U' F' (y)", "Pi Diag"],//R2 U R' F R2 F2 U' F R;R' U' F R2 F2 U' F U' R2;R F R' F2 U2 F R' U R2;R F' U2 F2 R F' R' U R2;R' U2 R U' R U R' U R U' R U2 R
 		["R' F R F' R' U R'", "Pi Bars"],
-		["F' U2 R' U R' F U2 R' F'", "Pi Schach"],
+		["F' U2 R' U R' F U2 R' F'", "Pi Checkers"],
 		["R' U' R' U2' R' F R2 F'", "Pi DL"],
 		["R' F' U F R U' R U' R", "Pi DR", "F R2 F' R2 U R U R2"],
 
@@ -252,7 +252,7 @@ data = [
 		["R U R' U R' U R2", "Pi easy", "R U2 R2 U' R U2 R2"],
 		["R2 F' R' U2 R2 U' R' F2", "Pi Diag"],//R2 F U F2 U2 F R F2
 		["F U2 F R2 F R'", "Pi Bars", "y' x' R F2 R U2 R U' x y"],
-		["F' R2 U2 R U R' U' F' R", "Pi Schach", "R' U' R2 U' R2 F R F' R' U' R"],//R2 U F R2 U2 F' U2 F'
+		["F' R2 U2 R U R' U' F' R", "Pi Checkers", "R' U' R2 U' R2 F R F' R' U' R"],//R2 U F R2 U2 F' U2 F'
 		["F R' F' U2 R U R' U2 R2", "Pi DL", "F R' F' U2 R U R U2 R2"],//(U) R' U' F2 R F' R' F2 U2 R2; (U') R' U R2 U R U2 R2 F R F'
 		["R' U2 R U' R2 F' U F", "Pi DR"],//R' U' R2 U' R F R' F' R2
 
@@ -304,7 +304,7 @@ data = [
 		["R' F' U' R U' R' F2", "Pi easy", "R2' F R F' U' R' F R F'"],//R' F R F2 U2 F R
 		["R2 U R' U R U2' R2' U R", "Pi Diag"],
 		["R' U2 R2 F R F' R U' R' U R'", "Pi Bars"],//F' U' F U' R U' F R2 F'; F R2 F' R U2 R U' R2 U' R2
-		["R2 U' R' U R U' F R' F' R", "Pi Schach"],//F2 R U' R' F U R' F2 R2
+		["R2 U' R' U R U' F R' F' R", "Pi Checkers"],//F2 R U' R' F U R' F2 R2
 		["(y) R U R' U' R U2 R' F' (y')", "Pi DL"],//F R F' U2' R' F' U2' F
 		["(y') R' U' R U R' U2 R B (y)", "Pi DR", "(y) F R U2 R' U R U' R' (y')"],
 
