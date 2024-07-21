@@ -587,14 +587,14 @@ data = [
 		["R2 U R' U2 R U' R","&beta; Long 2","R U' R U2 R' U R2"],
 		["R2 U2 R U2 R2 F R F' R'","&beta 1; Short","R2 U2 R' U2 R F' U F"],
 		["F R' F U2 F R U2 F2","&beta; Short 2"],//R U' R2 F U F2 U' R F';R U' R U' R2 U F R2 F'
-		["R2 U R' F' R2 U2 B (z')","&beta; Diag 1"],
+		["R2 U R' F' R2 U2 B' (z')","&beta; Diag 1"],
 		["F R F' R U2 R' U2 R2","&beta; Diag 2"],
 
 		["R2 U' R F R' F' R U R","Gun RU"],
 		["R' U2 R U2 R' U R' U2 R U2 R","Gun Diag"],//R2 F2 R U R' F R U R U2 R'
 		["F R2 F' U' R'","Gun Left","F' R' U2 R F R'"],
-		["R' F' R U' R' F R' F R F","Gun Right"],//rotate
-		["(x) R' U R' U' R2 U R' U' R' (x')","Gun Front","x R2 U' R' U2 R' U2 R2 U x'"],
+		["R' F' R U' R' F R' F R F","Gun Right","(x) R' U R' U' R2 U R' U' R' (x')"],//rotate
+		["","Gun Front"],
 		["R2 F2 R F R U' R2 F2 R","Gun Back"]
 	],
 	[//TEG1-
